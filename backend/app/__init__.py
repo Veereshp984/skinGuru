@@ -1,0 +1,1 @@
+"""Skin cancer backend package."""

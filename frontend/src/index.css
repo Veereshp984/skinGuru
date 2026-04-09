@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-mist text-ink antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.88), transparent 24rem),
+      radial-gradient(circle at 82% 18%, rgba(134, 214, 29, 0.16), transparent 20rem),
+      radial-gradient(circle at 20% 82%, rgba(82, 113, 87, 0.14), transparent 24rem),
+      linear-gradient(180deg, #e5ece4 0%, #d9e3da 52%, #d2ddcf 100%);
+  }
+
+  ::selection {
+    @apply bg-sage/20 text-ink;
+  }
+}

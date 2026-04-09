@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+*.ipynb_checkpoints
+.env
+*.log
+*.ipynb
+data/
+*.csv
+*.zip
+*.xlsx
