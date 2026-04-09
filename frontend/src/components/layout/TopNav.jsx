@@ -1,4 +1,5 @@
 import { BrandMark } from "../icons/AppIcons";
+import { SITE_NAME } from "../../constants/content";
 
 export function TopNav({ navItems, imageFile, fileSizeLabel, onOpenFilePicker }) {
   return (
@@ -10,10 +11,10 @@ export function TopNav({ navItems, imageFile, fileSizeLabel, onOpenFilePicker })
           </div>
           <div className="min-w-0">
             <p className="truncate text-[11px] uppercase tracking-[0.3em] text-sage">
-              AI Lesion Scan
+              {SITE_NAME}
             </p>
             <p className="truncate text-sm font-medium text-ink/72">
-              Skin health screening flow
+              AI skin screening flow
             </p>
           </div>
         </a>

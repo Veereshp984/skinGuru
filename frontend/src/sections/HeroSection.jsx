@@ -1,5 +1,6 @@
 import { InfoTile } from "../components/shared/InfoTile";
 import { ScannerUploadCard } from "../components/shared/ScannerUploadCard";
+import { SITE_NAME } from "../constants/content";
 
 export function HeroSection({
   infoTiles,
@@ -25,7 +26,7 @@ export function HeroSection({
       <div className="flex flex-col rounded-[44px] border border-white/70 bg-white/58 p-6 shadow-soft backdrop-blur-2xl sm:p-8 xl:h-full xl:min-h-[calc(100vh-8.75rem)]">
         <div>
           <div className="inline-flex rounded-full border border-white/70 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.28em] text-sage">
-            AI Skin Check
+            {SITE_NAME} AI Skin Check
           </div>
           <h1 className="mt-5 max-w-[10ch] font-display text-5xl leading-[0.88] sm:text-6xl 2xl:text-7xl">
             Stay on top of your skin health.

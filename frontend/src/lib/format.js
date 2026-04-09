@@ -18,7 +18,7 @@ export function formatReportDate(value) {
 
 export function buildReportFileName(name) {
   const safeName = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  return `${safeName || "skin-scan"}-report.pdf`;
+  return `${safeName || "skinguru"}-report.pdf`;
 }
 
 export function getReportRecommendation(entry) {

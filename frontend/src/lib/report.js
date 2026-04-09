@@ -4,6 +4,7 @@ import {
   formatReportDate,
   getReportRecommendation,
 } from "./format";
+import { SITE_NAME } from "../constants/content";
 
 export async function generateAnalysisReport({ prediction, imageFile, modelName }) {
   const { jsPDF } = await import("jspdf");
@@ -19,7 +20,7 @@ export async function generateAnalysisReport({ prediction, imageFile, modelName 
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
-  doc.text("AI LESION SCAN REPORT", margin + 22, cursorY + 28);
+  doc.text(`${SITE_NAME.toUpperCase()} REPORT`, margin + 22, cursorY + 28);
   doc.setFontSize(24);
   doc.text(topPrediction.name, margin + 22, cursorY + 62);
   doc.setFont("helvetica", "normal");

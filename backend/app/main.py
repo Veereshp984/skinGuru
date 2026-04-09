@@ -24,6 +24,15 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def root() -> dict[str, str]:
+    return {
+        "message": "SkinGuru API is running.",
+        "health": "/api/health",
+        "docs": "/docs",
+    }
+
+
 @app.get("/api/health", response_model=HealthResponse)
 def health_check() -> HealthResponse:
     status = model_service.model_status()

@@ -5,17 +5,27 @@ export async function analyzeSkinImage(imageFile) {
   const formData = new FormData();
   formData.append("image", imageFile);
 
-  const response = await fetch(`${API_BASE}/api/predict?model=${MODEL_NAME}`, {
-    method: "POST",
-    body: formData,
-  });
+  try {
+    const response = await fetch(`${API_BASE}/api/predict?model=${MODEL_NAME}`, {
+      method: "POST",
+      body: formData,
+    });
 
-  const payload = await response.json();
-  if (!response.ok) {
-    throw new Error(payload.detail || "Analysis failed.");
+    const payload = await parseApiResponse(response);
+    if (!response.ok) {
+      throw new Error(payload.detail || `Analysis failed with status ${response.status}.`);
+    }
+
+    return payload;
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error(
+        "Could not reach the SkinGuru API. Check that VITE_API_BASE_URL uses your HTTPS Render URL and wait a moment if the free backend is waking up.",
+      );
+    }
+
+    throw error;
   }
-
-  return payload;
 }
 
 function getApiBase() {
@@ -34,4 +44,15 @@ function getApiBase() {
   }
 
   return "";
+}
+
+async function parseApiResponse(response) {
+  const contentType = response.headers.get("content-type") || "";
+
+  if (contentType.includes("application/json")) {
+    return response.json();
+  }
+
+  const text = await response.text();
+  return { detail: text || "The server returned an empty response." };
 }

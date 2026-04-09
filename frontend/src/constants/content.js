@@ -1,3 +1,5 @@
+export const SITE_NAME = "SkinGuru";
+
 export const navItems = [
   { label: "Main", href: "#upload" },
   { label: "Why It Matters", href: "#why-it-matters" },
