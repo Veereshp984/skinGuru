@@ -48,13 +48,15 @@ export function ScannerUploadCard({
           isDragging ? "ring-2 ring-lime/70 ring-offset-4 ring-offset-foam" : ""
         }`}
       >
-        <div className="relative flex min-h-[280px] flex-1 items-center justify-center overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,rgba(134,214,29,0.28),transparent_32%),linear-gradient(180deg,#f7f8f4_0%,#ebefe6_100%)] shadow-halo sm:min-h-[340px] xl:min-h-0">
+        <div className="relative flex min-h-[280px] flex-1 items-center justify-center overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,rgba(134,214,29,0.28),transparent_32%),linear-gradient(180deg,#f7f8f4_0%,#ebefe6_100%)] p-5 shadow-halo sm:min-h-[340px] xl:min-h-0 xl:p-6">
           {previewUrl ? (
-            <img
-              src={previewUrl}
-              alt="Selected lesion"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+            <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[28px] bg-[#d7dfd3]">
+              <img
+                src={previewUrl}
+                alt="Selected lesion"
+                className="h-full max-h-[28rem] w-full rounded-[24px] object-contain sm:max-h-[32rem]"
+              />
+            </div>
           ) : (
             <div className="px-8 text-center">
               <div className="mx-auto flex h-28 w-24 items-center justify-center rounded-[28px] bg-[linear-gradient(180deg,#9cd365_0%,#7abd47_48%,#f8faf5_48%,#f8faf5_100%)] shadow-[0_24px_40px_rgba(92,130,78,0.22)]">
@@ -66,12 +68,14 @@ export function ScannerUploadCard({
             </div>
           )}
 
-          <div className="pointer-events-none absolute inset-6 rounded-[28px] border border-white/80" />
-          <ScanCorner className="left-7 top-7" />
-          <ScanCorner className="right-7 top-7 rotate-90" />
-          <ScanCorner className="bottom-7 left-7 -rotate-90" />
-          <ScanCorner className="bottom-7 right-7 rotate-180" />
-          <div className="pointer-events-none absolute left-8 right-8 top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-white/90 shadow-[0_0_26px_rgba(255,255,255,0.95)] animate-scan" />
+          <div className="pointer-events-none absolute inset-11 rounded-[28px] border border-white/80" />
+          <ScanCorner className="left-12 top-12" />
+          <ScanCorner className="right-12 top-12 rotate-90" />
+          <ScanCorner className="bottom-12 left-12 -rotate-90" />
+          <ScanCorner className="bottom-12 right-12 rotate-180" />
+          {!previewUrl ? (
+            <div className="pointer-events-none absolute left-14 right-14 top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-white/90 shadow-[0_0_26px_rgba(255,255,255,0.95)] animate-scan" />
+          ) : null}
         </div>
       </div>
 
